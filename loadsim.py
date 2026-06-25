@@ -40,12 +40,21 @@ def process_command(cmd):
         return None
 
     elif cmd == "MEAS:VOLT?":
-        return str(jitter(voltage)) + " V"
+        if input == "OFF":
+            return "0.0 V"
+
+        return str(jitter(voltage)) + " V" 
 
     elif cmd == "MEAS:CURR?":
+        if input == "OFF":
+            return "0.0 A"
+
         return str(jitter(current)) + " A"
 
     elif cmd == "MEAS:POW?":
+        if input == "OFF":
+            return "0.0 W"
+
         return str(jitter(power)) + " W"
 
     elif cmd == "INP?":
